@@ -1,9 +1,10 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ModalProvider } from "@/components/providers/modal-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
+import { ClerkProvider } from "@clerk/nextjs";
+import type { Metadata } from "next";
+import { Open_Sans } from "next/font/google";
+import "./globals.css";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
             enableSystem={false}
             storageKey="chat-app-theme"
           >
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </body>
